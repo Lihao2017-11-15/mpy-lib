@@ -23,6 +23,8 @@ class FourDigitDisplay():
         self.on()
 
     def intensity(self, dat = -1):
+        """调整亮度
+        dat:1~6"""
         if dat < 0 or dat > 8:
             return self._intensity
         if dat == 0:
@@ -78,6 +80,7 @@ class FourDigitDisplay():
         self.showbit((num >> 8) % 16, 1)
         
     def showDP(self, bit = 1, show = True):
+        """显示小数点"""
         if show:
             self.dat(bit, self.dbuf[bit] | 0x80)
         else:
